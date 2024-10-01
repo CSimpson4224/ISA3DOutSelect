@@ -1,4 +1,4 @@
-#ISA3D + Anomaly Detection 
+# ISA3D + Anomaly Detection 
 
 This github contains the code used to generate the instance spaces for the ISA3 + Anomaly Detection paper.
 
