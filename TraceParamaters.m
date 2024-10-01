@@ -1,3 +1,4 @@
+rootdir = './plots/';
 opts.trace.usesim = true;          
 opts.trace.PI = 0.6;
 opts.trace.prior = [0.6,0.4];

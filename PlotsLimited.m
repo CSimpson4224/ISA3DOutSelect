@@ -78,7 +78,10 @@ lgd = legend([qw{:}],{'Good','Bad','Footprint'}, 'Orientation', 'Horizontal');
 lgd.Layout.Tile = 'south';
 print(gcf,'-dpng',[rootdir '3DfootprintLimited.png'],'-r500');
 
-
+if ~exist("Xaux1")
+    Xaux1 = (MA2D.data.X-min(MA2D.data.X,[],1))./range(MA2D.data.X,1);
+    Xaux2 = (MA3D.data.X-min(MA3D.data.X,[],1))./range(MA3D.data.X,1);
+end
 scriptfcnThreeD;
 f = figure();
 f.Position(3:4) = [2500 700];
@@ -87,8 +90,8 @@ t = tiledlayout(2,5,TileSpacing="tight",Padding="tight");
 for i=1:nfeats
     %clf;
     nexttile
-    drawScatter(MA3D.pilot.Z, Xaux(:,i),...
-                strrep(container.data.featlabels{i},'_',' '));
+    drawScatter(MA3D.pilot.Z, Xaux2(:,i),...
+                strrep(MA3D.data.featlabels{i},'_',' '));
     % line(model.cloist.Zedge(:,1), model.cloist.Zedge(:,2), 'LineStyle', '-', 'Color', 'r');
     
 end
@@ -103,16 +106,14 @@ t = tiledlayout(2,5,TileSpacing="tight",Padding="tight");
 for i=1:nfeats
     %clf;
     nexttile
-    drawScatter(MA2D.pilot.Z, Xaux(:,i),...
-                strrep(container.data.featlabels{i},'_',' '));
+    drawScatter(MA2D.pilot.Z, Xaux1(:,i),...
+                strrep(MA3D.data.featlabels{i},'_',' '));
     % line(model.cloist.Zedge(:,1), model.cloist.Zedge(:,2), 'LineStyle', '-', 'Color', 'r');
     
 end
 print(gcf,'-dpng',[rootdir 'distribution_feature_2D.png'],'-r500');
 
 
-Xaux1 = (MA2D.data.X-min(MA2D.data.X,[],1))./range(MA2D.data.X,1);
-Xaux2 = (MA3D.data.X-min(MA3D.data.X,[],1))./range(MA3D.data.X,1);
 
 f = figure();
 f.Position(3:4) = [1100 2500];
