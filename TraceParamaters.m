@@ -15,7 +15,7 @@ nnhigh = TRACE22(MA2D.pilot.Z, MA2D.data.Ybin(:,9), MA2D.data.P, MA2D.data.beta,
 
 scriptfcnOG;
 f = figure();
-f.Position(3:4) = [1500 500];
+f.Position(3:4) = [850 350];
 t = tiledlayout(1,3,TileSpacing="tight",Padding="tight");
 title(t,'FAST ABOD Mean SD, Prior = [0.6,0.4] PI = 0.6')
 nexttile(t)
@@ -69,7 +69,7 @@ opts.trace.prior = [0.8,0.2];
 priorhigh = TRACE22(MA2D.pilot.Z, MA2D.data.Ybin(:,9), MA2D.data.P, MA2D.data.beta, MA2D.data.algolabels(9), opts);
 
 f = figure();
-f.Position(3:4) = [1500 500];
+f.Position(3:4) = [850 350];
 t = tiledlayout(1,3,TileSpacing="tight",Padding="tight");
 title(t,'FAST ABOD Mean SD, k = 50 PI = 0.6')
 nexttile(t)
@@ -131,13 +131,14 @@ opts.trace.prior = [0.8,0.2];
 opts.trace.PI = 0.8;
 purityhigh2 = TRACE22(MA2D.pilot.Z, MA2D.data.Ybin(:,i), MA2D.data.P, MA2D.data.beta, MA2D.data.algolabels(9), opts);
 
+scriptfcnOG;
 
 f = figure();
-f.Position(3:4) = [1100 1500];
+f.Position(3:4) = [750 850];
 t = tiledlayout(2,2,TileSpacing="tight",Padding="tight");
-title(t,'iForest Mean SD, k = 50 Prior = [0.6,0.4]')
+title(t,'iForest Mean SD, k = 50')
 nexttile(t)
-title("PI = 0.4") 
+title("PI = 0.4 and Prior = [0.6,0.4]") 
 drawGoodBadFootprint(MA2D.pilot.Z, ...
     puritylow.good{1}, ...
     MA2D.data.Ybin(:,9), ...
@@ -145,7 +146,7 @@ drawGoodBadFootprint(MA2D.pilot.Z, ...
 grid on
 
 nexttile(t)
-title( "PI = 0.6") 
+title( "PI = 0.6 and Prior = [0.6,0.4]") 
 drawGoodBadFootprint(MA2D.pilot.Z, ...
     Tdefault.good{1}, ...
     MA2D.data.Ybin(:,9), ...
@@ -153,7 +154,7 @@ drawGoodBadFootprint(MA2D.pilot.Z, ...
 grid on
 
 nexttile(t)
-title("PI = 0.8") 
+title("PI = 0.8 and Prior = [0.6,0.4]") 
 drawGoodBadFootprint(MA2D.pilot.Z, ...
     purityhigh.good{1}, ...
     MA2D.data.Ybin(:,9), ...
@@ -161,7 +162,7 @@ drawGoodBadFootprint(MA2D.pilot.Z, ...
 grid on
 
 nexttile(t)
-title("PI = 0.8, Prior = [0.8,0.2]") 
+title("PI = 0.8 and Prior = [0.8,0.2]") 
 drawGoodBadFootprint(MA2D.pilot.Z, ...
     purityhigh2.good{1}, ...
     MA2D.data.Ybin(:,9), ...
