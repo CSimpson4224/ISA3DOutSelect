@@ -71,8 +71,8 @@ ubound = ceil(max(Z));
 lbound = floor(min(Z));
 handle = scatter3(Z(:,1),Z(:,2),Z(:,3), 4, X, 'filled');
 caxis([0,1])
-xlabel('z_{1}'); ylabel('z_{2}'); zlabel('z_{3}'); title(titlelabel);
-set(findall(gcf,'-property','FontSize'),'FontSize',12);
+xlabel('z_{1}','FontSize',12); ylabel('z_{2}','FontSize',12); zlabel('z_{3}','FontSize',12); title(titlelabel,'FontSize',12);
+%set(findall(gcf,'-property','FontSize'),'FontSize',12);
 set(findall(gcf,'-property','LineWidth'),'LineWidth',1);
 %axis square; axis([lbound(1)-1 ubound(1)+1 lbound(2)-1 ubound(2)+1]);
 %colorbar('EastOutside');
